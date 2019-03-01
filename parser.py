@@ -32,5 +32,19 @@ The file follows the following format:
 
 See the file script for an example of the file format
 """
+commands=['line','ident','scale','translate','rotate','apply','display','save','quit']
 def parse_file( fname, points, transform, screen, color ):
-    pass
+    num_lines=0
+    lines = f.readlines()
+    with open(fname,"r") as f:
+        for line in f:
+            num_lines +=1
+    if num_lines % 2 && "quit" not in f.read():
+        return "Bad input"
+    else:
+        i=0
+        while(i<num_lines):
+            if lines[i] in commands:
+                i+=1
+                string =lines[i] +""
+                com=eval(lines[i]+"(")
