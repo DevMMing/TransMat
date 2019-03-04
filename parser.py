@@ -39,8 +39,6 @@ def parse_file( fname, points, transform, screen, color ):
     lines = f.read().split('\n')
     i=0
     while(i<len(lines)-1):
-        print(i)
-        print(points)
         if lines[i] in com:
             command="make_"+lines[i]
             temp=i+1
@@ -69,6 +67,7 @@ def parse_file( fname, points, transform, screen, color ):
                 ident(transform)
             elif lines[i] == "apply":
                 matrix_mult(transform,points)
+                points = [[int(val) for val in row] for row in points]
             elif lines[i] == "display":
                 clear_screen(screen)
                 draw_lines(points,screen,color)
@@ -76,4 +75,3 @@ def parse_file( fname, points, transform, screen, color ):
             elif lines[i] == "quit":
                 return
             i+=1
-            
