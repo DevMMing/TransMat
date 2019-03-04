@@ -40,6 +40,7 @@ def parse_file( fname, points, transform, screen, color ):
     i=0
     while(i<len(lines)-1):
         if lines[i] in com:
+            print(i)
             command="make_"+lines[i]
             temp=i+1
             temp=lines[temp]
